@@ -61,5 +61,10 @@ resource "aws_instance" "app_instance" {
     Name        = "eswap-app-server"
     Environment = "dev"
   }
-}
 
+  lifecycle {
+    ignore_changes = [
+      security_groups
+    ]
+  }
+}
